@@ -5,13 +5,13 @@ function showScreen(screenId) {
     screens.forEach(screen => {
         screen.classList.remove('active');
     });
-    
+
     // Mostrar la pantalla seleccionada
     const targetScreen = document.getElementById(screenId);
     if (targetScreen) {
         targetScreen.classList.add('active');
     }
-    
+
     // Limpiar resultados cuando se cambia de pantalla
     clearResults();
 }
@@ -44,16 +44,22 @@ function esNumeroValido(valor) {
 function calcularSuma() {
     const num1 = parseFloat(document.getElementById('num1').value);
     const num2 = parseFloat(document.getElementById('num2').value);
-    
+
     if (!esNumeroValido(num1) || !esNumeroValido(num2)) {
         mostrarResultado('resultado-suma', 'Por favor, ingresa números válidos en ambos campos.', false);
         return;
     }
-    
+
     //--------------------Aqui va la solicion del ejercicio 1--------------------
-
-
-
+    else {
+        let resultadoSuma = num1 + num2;
+        // let showResults = document.getElementById("resultado-suma")
+        // showResults.innerText = "The result is: " + resultadoSuma;
+        // console.log(showResults);
+        // alert("I am here...")
+        mostrarResultado('resultado-suma', "El resultado de la suma es: " + resultadoSuma, true);
+        console.log("El resultado de la suma es: " + resultadoSuma)
+    }
     //--------------------Aqui termina la solicion del ejercicio 1--------------------
 }
 
@@ -62,12 +68,12 @@ function calcularPromedio() {
     const prom1 = parseFloat(document.getElementById('prom1').value);
     const prom2 = parseFloat(document.getElementById('prom2').value);
     const prom3 = parseFloat(document.getElementById('prom3').value);
-    
+
     if (!esNumeroValido(prom1) || !esNumeroValido(prom2) || !esNumeroValido(prom3)) {
         mostrarResultado('resultado-promedio', 'Por favor, ingresa números válidos en todos los campos.', false);
         return;
     }
-    
+
 
     //--------------------Aqui va la solicion del ejercicio 2--------------------
 
@@ -79,13 +85,13 @@ function calcularPromedio() {
 // EJERCICIO 3: Calcular edad en días
 function calcularEdadDias() {
     const anos = parseFloat(document.getElementById('anos').value);
-    
+
     if (!esNumeroValido(anos) || anos < 0) {
         mostrarResultado('resultado-edad', 'Por favor, ingresa una edad válida (número positivo).', false);
         return;
     }
-    
-        //--------------------Aqui va la solicion del ejercicio 3--------------------
+
+    //--------------------Aqui va la solicion del ejercicio 3--------------------
 
 
 
@@ -97,16 +103,15 @@ function calcularMinutosAno() {
     const diasEnAno = 365;
     const horasPorDia = 24;
     const minutosPorHora = 60;
-    
+
     const totalMinutos = 0;//usa esta constante para el resultado
 
-        //--------------------Aqui va la solicion del ejercicio 4--------------------
-
+    //--------------------Aqui va la solicion del ejercicio 4--------------------
 
 
     //--------------------Aqui termina la solicion del ejercicio 4--------------------
-    
-    mostrarResultado('resultado-minutos', 
+
+    mostrarResultado('resultado-minutos',
         `Un año tiene ${totalMinutos.toLocaleString()} minutos.<br>
         <small>Cálculo: ${diasEnAno} días × ${horasPorDia} horas × ${minutosPorHora} minutos = ${totalMinutos.toLocaleString()} minutos</small>`
     );
@@ -115,12 +120,12 @@ function calcularMinutosAno() {
 // EJERCICIO 5: Calcular precio con impuesto del 19%
 function calcularPrecioConImpuesto() {
     const precio = parseFloat(document.getElementById('precio').value);
-    
+
     if (!esNumeroValido(precio) || precio < 0) {
         mostrarResultado('resultado-impuesto', 'Por favor, ingresa un precio válido (número positivo).', false);
         return;
     }
-    
+
     const impuesto = 0.19; // 19%
     const valorImpuesto = 0;//usa esta constante para el resultado
     const precioFinal = 0;//usa esta constante para el resultado
@@ -130,8 +135,8 @@ function calcularPrecioConImpuesto() {
 
 
     //--------------------Aqui termina la solicion del ejercicio 5--------------------
-    
-    mostrarResultado('resultado-impuesto', 
+
+    mostrarResultado('resultado-impuesto',
         `Precio original: $${precio.toFixed(2)}<br>
         Impuesto (19%): $${valorImpuesto.toFixed(2)}<br>
         <strong>Precio final: $${precioFinal.toFixed(2)}</strong>`
@@ -139,12 +144,12 @@ function calcularPrecioConImpuesto() {
 }
 
 // Eventos para mejorar la experiencia del usuario
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Agregar eventos Enter para los inputs
     const inputs = document.querySelectorAll('input[type="number"]');
-    
+
     inputs.forEach(input => {
-        input.addEventListener('keypress', function(e) {
+        input.addEventListener('keypress', function (e) {
             if (e.key === 'Enter') {
                 // Buscar el botón de cálculo en la misma pantalla
                 const screen = input.closest('.screen');
@@ -154,9 +159,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         });
-        
+
         // Limpiar resultado cuando el usuario empiece a escribir
-        input.addEventListener('input', function() {
+        input.addEventListener('input', function () {
             const screen = input.closest('.screen');
             const resultado = screen.querySelector('.resultado');
             if (resultado && resultado.innerHTML !== '') {
