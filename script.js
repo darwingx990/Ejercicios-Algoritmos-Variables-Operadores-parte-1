@@ -76,6 +76,8 @@ function calcularPromedio() {
 
 
     //--------------------Aqui va la solicion del ejercicio 2--------------------
+    let resultadoPromedio = parseFloat(prom1 + prom2 + prom3) / 3
+    mostrarResultado("resultado-promedio", "El promedio entre los numeros " + prom1 + ", " + prom2 + " y " + prom3 + " es: " + Math.round(resultadoPromedio), true);
 
 
 
@@ -93,7 +95,8 @@ function calcularEdadDias() {
 
     //--------------------Aqui va la solicion del ejercicio 3--------------------
 
-
+    let edadEnDias = parseInt(anos) * 365
+    mostrarResultado('resultado-edad', "Tienes " + edadEnDias + " dias de edad.", true);
 
     //--------------------Aqui termina la solicion del ejercicio 3--------------------
 }
