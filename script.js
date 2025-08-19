@@ -107,10 +107,11 @@ function calcularMinutosAno() {
     const horasPorDia = 24;
     const minutosPorHora = 60;
 
-    const totalMinutos = 0;//usa esta constante para el resultado
+    let totalMinutos = 0;//usa esta constante para el resultado
 
     //--------------------Aqui va la solicion del ejercicio 4--------------------
 
+    totalMinutos = 365 * 24 * 60;
 
     //--------------------Aqui termina la solicion del ejercicio 4--------------------
 
@@ -130,12 +131,13 @@ function calcularPrecioConImpuesto() {
     }
 
     const impuesto = 0.19; // 19%
-    const valorImpuesto = 0;//usa esta constante para el resultado
-    const precioFinal = 0;//usa esta constante para el resultado
+    let valorImpuesto = 0;//usa esta constante para el resultado
+    let precioFinal = 0;//usa esta constante para el resultado
 
     //--------------------Aqui va la solicion del ejercicio 5--------------------
 
-
+    valorImpuesto = precio * impuesto;
+    precioFinal = precio + valorImpuesto;
 
     //--------------------Aqui termina la solicion del ejercicio 5--------------------
 
